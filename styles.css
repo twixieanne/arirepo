@@ -1,0 +1,244 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-areas:
+    "header header"
+    "sidebar main";
+  background-color: black;
+  color: white;
+  font-size: 1rem;
+  line-height: 1.6;
+  padding: 0;
+  display: block;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #07235e 0%, #0c24f5 100%);
+  color: white;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  font-family: Serif;
+  position: relative;
+  z-index: 2;
+
+}
+
+#title {
+  font-size: 40px;
+  text-shadow: 2px 2px 4px #080808;
+  text-align: center;
+  flex-grow: 1;
+}
+
+h1 h2 h3 h4 {
+  font-family: serif;
+}
+
+.welcome {
+  font-size: 35px;
+  margin: 0;
+  color: #ffffff;
+  font-family: serif;
+}
+
+#menu-button {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  margin-right: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.sidebar {
+  top: 0;
+  left: -220px;
+  width: 220px;
+  height: 70vh;
+  background: linear-gradient(135deg, #07235e 0%, #0c24f5 100%);
+  overflow-y: auto;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+#main-content {
+  margin-left: 220px;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+}
+
+body.sidebar-hidden #main-content {
+  margin-left: 10;
+}
+
+.sidebar a {
+  display: block;
+  color: rgb(255, 254, 254);
+  padding: 8px 0;
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  color: #080808;
+}
+
+main {
+  grid-area: main;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.nav-buttons {
+  margin: 20px 0;
+}
+
+.nav-buttons a {
+  color: white;
+  background-color: #333;
+  padding: 8px 15px;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.nav-buttons a:hover {
+  background-color: #07235e;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+button {
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  padding: 4px 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 1rem;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  width: 10%;
+  padding: 10px;
+  margin: 5px 0 20px 0;
+  border: none;
+  border-radius: 4px;
+  background-color: #f2f2f2;
+  font-family: serif;
+  font-size: 16px;
+}
+
+a {
+  display: inline-block;
+  background: linear-gradient(135deg, #07235e 0%, #0d4ace 100%);
+  color: white;
+  text-decoration: none;
+  padding: 0px 8px;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+  margin-top: 30px;
+  margin-bottom: 30px;
+  justify-content: center;
+  text-align: center;
+  padding: 0.5rem 1rem;
+
+}
+
+a:hover {
+  background: linear-gradient(135deg, #1a1c99 0%, #1baaec 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .container {
+    width: 100%;
+    padding: 0.5rem;
+  }
+}
+
+button,
+a {
+  min-width: 25px;
+  min-height: 25px;
+  padding: 0.5rem 1rem;
+}
+
+@media (max-width: 768px) {
+  #title {
+    font-size: 28px;
+    text-align: center;
+    padding-left: 0;
+  }
+
+  #menu-button {
+    font-size: 18px;
+    padding: 8px 12px;
+    margin-right: 10px;
+  }
+
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  #main-content {
+    margin-left: 0;
+    /* Always full width on small screens */
+  }
+
+  .sidebar {
+    width: 70%;
+  }
+}
